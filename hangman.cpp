@@ -8,15 +8,31 @@
 
 using namespace std;
 
+void displayGameDetails(int maxTries);
+string chooseSecretWord();
+void replaceDashes(char guessWord[], int length);
+void displayWord(string word, int length);
+int isGuessTrue(string secretWord, char guessWord[], char letter);
+void displayMan(int remainingGuess);
+
 int main() {
   int maxTries = 5;
   int remainTries = 5;
-  char guess;
+  char guessLetter;
   string word;
   int wordLength;
 
   displayGameDetails(maxTries);
-  cout << "Random word chosen: " << chooseSecretWord() << "\n";
+
+  word = chooseSecretWord();
+  wordLength = word.length();
+
+  cout << "Random word chosen! \n";
+
+  char guessWord[wordLength];
+  replaceDashes(guessWord, wordLength);
+  cout << "Your guess word is: ";
+  displayWord(guessWord, wordLength);
 
   return 0;
 }
@@ -39,6 +55,20 @@ string chooseSecretWord() {
   return word;
 
   return "";
+}
+
+void replaceDashes(char guessWord[], int length) {
+  for (int i = 0; i < length; i++) {
+    guessWord[i] = '-';
+    guessWord[length] = '\0';
+  }
+}
+
+void displayWord(string word, int length) {
+  for (int i = 0; i < length; i++) {
+    cout << word[i];
+  }
+  cout << endl;
 }
 
 void displayGameDetails(int maxTries) {
