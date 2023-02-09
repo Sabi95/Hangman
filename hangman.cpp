@@ -16,11 +16,33 @@ int main() {
   int wordLength;
 
   displayGameDetails(maxTries);
+  cout << "Random word chosen: " << chooseSecretWord() << "\n";
 
   return 0;
 }
 
+string chooseSecretWord() {
+
+  string animals[] =
+    {"puppy","turtle","rabbit",
+      "raccoon","kitten","hamster",
+      "sheep","turkey","chicken",
+      "horse","chimpanzee","kangaroo",
+      "koala", "elephant","leopard","hippopotamus",
+      "giraffe","crocodile","alligator",
+      "hedgehog"
+    };
+
+  srand(time(NULL));
+  int randomIndex = (rand() % 20);
+  string word = animals[randomIndex];
+  return word;
+
+  return "";
+}
+
 void displayGameDetails(int maxTries) {
+
   cout << "\n"
   "        .-------------------------------------------------------------------------------.\n"
   "        |      _      _                                                                  |\n"
