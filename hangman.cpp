@@ -44,8 +44,30 @@ int main() {
     int guess = isGuessTrue(secretWord, guessWord, guessLetter);
 
     if (guess == 0) {
-
+      remainTries--;
+      cout << "\nSorry, that letter is not in the word" << endl;
+      displayMan(remainTries);
     }
+    if (guess == 1) {
+      cout << "\nYou have guessed a correct letter!" << endl;
+    }
+    if (guess == 2) {
+      cout << "You have already guessed this letter" << endl;
+    }
+    cout << "You have " << remainTries << " more guesses left" << endl;
+    cout << "Your guess word is: ";
+    displayWord(guessWord, wordLength);
+    cout << endl;
+
+    if (secretWord == guessWord) {
+      cout << "Congratulations! You guessed the word!" << endl;
+      returm 0;
+    }
+  }
+  if ( secretWord != guessWord) {
+    cout << "You have run put of tries. You have been hanged..." << endl;
+    cout << "The secret word was: ";
+    displayWord(secretWord, wordLength);
   }
 }
 
