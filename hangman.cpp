@@ -137,3 +137,28 @@ int isGuessTrue(string secretWord, char guessWord[], char letter) {
   }
   return flag;
 }
+
+void displayMan(int remainingGuess) {
+  string part[4];
+  switch (remainingGuess) {
+    case 0:
+      part[3] = "|";
+    case 1:
+      part[2] = "/ \\";
+    case 2:
+      part[1] = "/|\\";
+    case 3:
+      part[0] = "( )";
+      break;
+  }
+
+  cout << "--------------\n";
+  cout << "  |       " << part[3] << endl;
+  cout << "  |       " << part[3] << endl;
+  cout << "  |      " << part[0] << endl;
+  cout << "  |      " << part[1] << endl;
+  cout << "  |      " << part[2] << endl;
+  cout << "  |\n";
+  cout << "  |\n";
+  cout << "--------------\n";
+}
